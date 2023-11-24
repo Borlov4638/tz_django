@@ -31,22 +31,18 @@ export default {
         this.base64Data = fileReader.result;
       };
 
-      // Чтение файла в формате base64
       fileReader.readAsDataURL(event.target.files[0]);
     },
     async submitForm() {
       try {
-        // Отправляем POST-запрос на сервер с данными формы
         const response = await axios.post('http://127.0.0.1:8000/images/', {
           description: this.description,
           base64_data: this.base64Data,
         }, {headers:{"Content-Type": 'application/json'}});
 
-        // После успешной отправки сбрасываем значения полей формы
         this.description = '';
         this.base64Data = null;
 
-        // Вызываем событие для сообщения родительскому компоненту об успешной отправке
         this.$emit('imageUploaded');
 
         console.log('Изображение успешно отправлено:', response.data);

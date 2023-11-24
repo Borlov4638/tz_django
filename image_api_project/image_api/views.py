@@ -1,11 +1,6 @@
 from rest_framework import generics
 from .models import Image
 from .serializers import ImageSerializer
-from rest_framework.parsers import BaseParser
-from rest_framework.parsers import MultiPartParser, FormParser
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import status
 from rest_framework.parsers import JSONParser
 
 class ImageView(generics.ListCreateAPIView):

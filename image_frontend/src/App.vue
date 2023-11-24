@@ -24,10 +24,8 @@ export default {
   methods: {
     async loadImages() {
       try {
-        // Выполните GET-запрос к вашему API для получения списка изображений
         const response = await axios.get("http://127.0.0.1:8000/images/");
 
-        // Обновите состояние images полученными данными
         this.images = response.data;
       } catch (error) {
         console.error("Ошибка при загрузке изображений:", error);
@@ -35,7 +33,6 @@ export default {
     },
   },
   mounted() {
-    // Вызовите метод loadImages при загрузке компонента
     this.loadImages();
   },
 };

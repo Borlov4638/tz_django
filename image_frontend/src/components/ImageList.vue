@@ -19,10 +19,8 @@
     methods: {
       async deleteImage(imageId) {
         try {
-          // Выполняем DELETE-запрос к API для удаления изображения по ID
           await axios.delete(`http://127.0.0.1:8000/images/${imageId}/`);
   
-          // После успешного удаления вызываем событие @imageDeleted
           this.$emit('imageDeleted');
         } catch (error) {
           console.error(`Ошибка при удалении изображения с ID ${imageId}:`, error);
